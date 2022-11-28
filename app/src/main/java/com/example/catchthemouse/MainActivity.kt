@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         imageArray.add(imageView10)
 
 
+        hideImages()
 
         //CountDownTimer: app acildigi gibi geri sayma islemine baslayacagim icin onCreate icinde yapacagiz
         object : CountDownTimer(15000, 1000) {
@@ -62,6 +63,14 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
+    fun hideImages() {
+        for (image in imageArray) {
+            image.visibility = View.INVISIBLE
+        }
+        val random = Random()
+        val randomIndex = random.nextInt(9)
+        imageArray[randomIndex].visibility = View.VISIBLE
+    }
 
 
     fun increaseScore(view: View) {
